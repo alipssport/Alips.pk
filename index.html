@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Alips.pk — Shop smart, live better. Explore tech, perfumes and electrical accessories.">
+  <title>Alips.pk | Shop Smart, Live Better</title>
+  <style>
+    :root { --orange:#ff6a00; --red:#e92716; --ink:#17191f; --muted:#626875; --paper:#fffaf6; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:Arial,Helvetica,sans-serif; color:var(--ink); background:var(--paper); }
+    header { display:flex; align-items:center; justify-content:space-between; gap:20px; padding:16px max(6%, calc((100% - 1120px)/2)); background:#fff; border-bottom:1px solid #eee; }
+    header img { width:150px; height:auto; }
+    nav a { color:var(--ink); text-decoration:none; margin-left:22px; font-size:14px; font-weight:700; }
+    .hero { max-width:1120px; margin:auto; padding:68px 24px 58px; display:grid; grid-template-columns:1.1fr .9fr; align-items:center; gap:34px; }
+    .eyebrow { color:var(--orange); font-weight:800; letter-spacing:2px; text-transform:uppercase; font-size:12px; }
+    h1 { font-size:clamp(38px,6vw,64px); line-height:1.04; margin:14px 0; }
+    h1 span { color:var(--orange); }
+    .lead { color:var(--muted); font-size:18px; line-height:1.7; max-width:520px; }
+    .hero-logo { width:100%; max-width:440px; display:block; margin:auto; border-radius:24px; }
+    .section { max-width:1120px; margin:0 auto; padding:30px 24px 70px; }
+    .section h2 { font-size:30px; margin-bottom:8px; }
+    .sub { color:var(--muted); margin-top:0; }
+    .cards { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin-top:26px; }
+    .card { background:#fff; border:1px solid #f0e8e2; border-radius:18px; padding:28px 22px; box-shadow:0 8px 24px #1b1b1b08; }
+    .symbol { width:46px; height:46px; display:grid; place-items:center; border-radius:14px; background:#fff0e5; color:var(--orange); font-size:24px; }
+    .card h3 { margin:18px 0 8px; font-size:20px; }
+    .card p { color:var(--muted); line-height:1.6; margin:0; }
+    footer { text-align:center; padding:26px 20px; background:#17191f; color:#fff; }
+    footer span { color:#ff9a38; }
+    @media(max-width:700px) { header { padding:14px 20px; } header img { width:112px; } nav a { margin-left:12px; font-size:12px; } .hero { grid-template-columns:1fr; padding-top:48px; text-align:center; } .lead { margin:0 auto; } .hero-logo { max-width:310px; } .cards { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="#"><img src="logo.png" alt="Alips.pk logo"></a>
+    <nav><a href="#categories">Categories</a><a href="#about">About</a></nav>
+  </header>
+  <main>
+    <section class="hero" id="about">
+      <div>
+        <div class="eyebrow">Welcome to Alips.pk</div>
+        <h1>Shop smart.<br><span>Live better.</span></h1>
+        <p class="lead">Discover useful finds for everyday life — from technology and fragrances to electrical accessories.</p>
+      </div>
+      <img class="hero-logo" src="logo.png" alt="Alips.pk">
+    </section>
+    <section class="section" id="categories">
+      <h2>Explore our categories</h2>
+      <p class="sub">A little something for your everyday needs.</p>
+      <div class="cards">
+        <article class="card"><div class="symbol">⌁</div><h3>Tech</h3><p>Explore technology and everyday gadgets.</p></article>
+        <article class="card"><div class="symbol">✦</div><h3>Perfumes</h3><p>Discover fragrances for every occasion.</p></article>
+        <article class="card"><div class="symbol">⚡</div><h3>Electrical Accessories</h3><p>Find practical accessories for home and daily use.</p></article>
+      </div>
+    </section>
+  </main>
+  <footer>© 2026 <span>Alips.pk</span> · Shop Smart, Live Better</footer>
+</body>
+</html>
