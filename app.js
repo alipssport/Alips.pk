@@ -3,7 +3,8 @@
   const products = window.ALIPS_PRODUCTS || [];
   const $ = (id) => document.getElementById(id);
   const money = (n) => `${cfg.currency || 'PKR'} ${Number(n).toLocaleString('en-PK')}`;
-  let cart = JSON.parse(localStorage.getItem('alips_cart') || '{}');
+  let cart = {};
+  try { cart = JSON.parse(localStorage.getItem('alips_cart') || '{}') || {}; } catch { cart = {}; }
   let activeFilter = 'All';
   const save = () => localStorage.setItem('alips_cart', JSON.stringify(cart));
   const toast = (msg) => { $('toast').textContent = msg; $('toast').classList.add('show'); setTimeout(() => $('toast').classList.remove('show'), 2200); };
@@ -49,7 +50,17 @@
     window.open(`https://wa.me/${number}?text=${encodeURIComponent(msg)}`, '_blank', 'noopener');
   });
   $('contactWhatsApp').addEventListener('click', e => { const n = String(cfg.whatsappNumber || '').replace(/\D/g,''); if (!n) { e.preventDefault(); toast('Please set your WhatsApp number in config.js first.'); } else { e.preventDefault(); window.open(`https://wa.me/${n}?text=${encodeURIComponent('Hello Alips.pk, I have a question.')}`, '_blank', 'noopener'); } });
-  $('menuToggle').addEventListener('click', () => { const nav = $('mainNav'); const isOpen = nav.classList.toggle('open'); $('menuToggle').setAttribute('aria-expanded', String(isOpen)); });
+  $('menuToggle').addEventListener('click', () => { const nav = $('mainNav'); const isOpen = nav.classList.toggle('open'); $('menuToggle').setAttribute('aria-expanded', String(isOpen)); $('menuToggle').setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu'); });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') {
+      closeCart();
+      $('checkoutModal').classList.remove('show');
+      $('checkoutModal').setAttribute('aria-hidden','true');
+      $('mainNav').classList.remove('open');
+      $('menuToggle').setAttribute('aria-expanded','false');
+      $('menuToggle').setAttribute('aria-label','Open menu');
+    }
+  });
   document.querySelectorAll('#mainNav a').forEach(a => a.addEventListener('click', () => $('mainNav').classList.remove('open')));
   $('year').textContent = new Date().getFullYear();
   renderProducts(); renderCart();
